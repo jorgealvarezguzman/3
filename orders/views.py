@@ -5,12 +5,23 @@ from django.urls import reverse
 
 from orders.forms import RegisterForm
 
+from .models import *
+
 
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
         return render(request, "login.html")
-    return render(request, "user.html")
+    context = {
+        "regularpizzas": RegularPizza.objects.all(),
+        "sicilianpizzas": SicilianPizza.objects.all(),
+        "subs": Subs.objects.all(),
+        "pastas": Pasta.objects.all(),
+        "salads": Salads.objects.all(),
+        "dinnerplatters": DinnerPlatters.objects.all(),
+        "toppings": Topping.objects.all()
+    }
+    return render(request, "user.html", context)
 
 
 def register(request):

@@ -6,4 +6,128 @@
     <li>Currently logged in as: {{ user.username }}</li>
     <li><a href="{% url 'logout' %}">Logout</a></li>
 </ul>
+
+<h1>Regular Pizza</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for regularpizza in regularpizzas %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ regularpizza.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Size: {{ regularpizza.size }}</li>
+              <li>Price: {{ regularpizza.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Sicilian Pizza</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for sicilianpizza in sicilianpizzas %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ sicilianpizza.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Size: {{ sicilianpizza.size }}</li>
+              <li>Price: {{ sicilianpizza.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Subs</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for sub in subs %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ sub.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Size: {{ sub.size }}</li>
+              <li>Price: {{ sub.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Pasta</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for pasta in pastas %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ pasta.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Price: {{ pasta.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Salads</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for salad in salads %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ salad.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Price: {{ salad.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Dinner Platters</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for dinnerplatter in dinnerplatters %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ dinnerplatter.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Size: {{ dinnerplatter.size }}</li>
+              <li>Price: {{ dinnerplatter.price }}</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Toppings</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for topping in toppings %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ topping.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+
+          </ul>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
