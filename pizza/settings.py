@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -63,12 +64,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'pizza.wsgi.application'
+
+CART_SESSION_ID = 'cart'
 
 
 # Database
