@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+# Create Product class with all products
+# or
+# Create own Cart class
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.CharField(max_length=2550)
+    price = models.FloatField()
+
+
 class Topping(models.Model):
     name = models.CharField(max_length = 32)
 

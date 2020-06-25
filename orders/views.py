@@ -21,7 +21,8 @@ def index(request):
         "pastas": Pasta.objects.all(),
         "salads": Salads.objects.all(),
         "dinnerplatters": DinnerPlatters.objects.all(),
-        "toppings": Topping.objects.all()
+        "toppings": Topping.objects.all(),
+        "products": Product.objects.all()
     }
     return render(request, "user.html", context)
 
@@ -62,7 +63,7 @@ def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect("home")
+    return redirect("index")
 
 
 @login_required(login_url="/users/login")
@@ -98,4 +99,4 @@ def cart_clear(request):
 
 @login_required(login_url="/users/login")
 def cart_detail(request):
-    return render(request, 'cart/cart_detail.html')
+    return render(request, 'cart_detail.html')

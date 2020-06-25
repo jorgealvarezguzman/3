@@ -2,10 +2,20 @@
 
 {% block body %}
 <h1>Hello, {{ user.first_name }}</h1>
-<ul>
-    <li>Currently logged in as: {{ user.username }}</li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-</ul>
+
+<div class="row">
+    <div class="col-sm">
+      <ul>
+          <li>Currently logged in as: {{ user.username }}</li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </div>
+    <div class="col-sm">
+      <ul>
+          <li><a href="{% url 'cart_detail' %}">Cart</a></li>
+      </ul>
+    </div>
+</div>
 
 <h1>Regular Pizza</h1>
 <!-- tiles -->
@@ -132,6 +142,25 @@
           </ul>
         </p>
         <a href="#" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Products</h1>
+<!-- tiles -->
+<div class="card-columns">
+    {% for product in products %}
+    <div class="card">
+      <img class="card-img-top" src="{{ product.image }}" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">
+          <ul style="list-style-type:none">
+              <li>Price: {{ product.price }}</li>
+          </ul>
+        </p>
+        <a href="{% url 'cart_add' product.id %}" class="btn btn-primary">Add to cart</a>
       </div>
     </div>
     {% endfor %}
