@@ -15,13 +15,6 @@ def index(request):
     if not request.user.is_authenticated:
         return render(request, "login.html")
     context = {
-        "regularpizzas": RegularPizza.objects.all(),
-        "sicilianpizzas": SicilianPizza.objects.all(),
-        "subs": Subs.objects.all(),
-        "pastas": Pasta.objects.all(),
-        "salads": Salads.objects.all(),
-        "dinnerplatters": DinnerPlatters.objects.all(),
-        "toppings": Topping.objects.all(),
         "products": Product.objects.all()
     }
     return render(request, "user.html", context)

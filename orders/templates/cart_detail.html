@@ -3,13 +3,15 @@
 {% block body %}
 <h1>Cart</h1>
 
+<a href="{% url 'cart_clear' %}">Clear Cart</a>
+
 {% load cart_tag %}
 
 <p>Total Length : {{request.session.cart|length}}</p>
 
 <h2>Cart Detail:</h2>
 
-{% for key,value in request.session.cart.items %}
+{% for id,value in request.session.cart.items %}
 <p>
   <div class="row">
       <div class="col-sm">
@@ -24,7 +26,16 @@
       <div class="col-sm">
           {{value.quantity}} units
       </div>
+      <div class="col-sm">
+          <div class="row">
+              <a href="{% url 'item_increment' id %}" class="btn btn-success">+</a>
+          </div>
+          <div class="row">
+              <a href="{% url 'item_decrement' id %}" class="btn btn-danger">-</a>
+          </div>
+      </div>
   </div>
+  <a href="{% url 'item_clear' id %}">Clear Item</a>
 </p>
 
 <h4>Total {{ value.price|multiply:value.quantity }} USD</h4>
