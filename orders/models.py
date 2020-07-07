@@ -10,6 +10,11 @@ class Product(models.Model):
     price = models.FloatField()
 
 
+class Order(models.Model):
+    cart = models.ManyToManyField(Product)
+    total_price = models.FloatField()
+
+
 class Topping(models.Model):
     name = models.CharField(max_length = 32)
 

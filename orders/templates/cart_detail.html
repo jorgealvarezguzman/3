@@ -41,4 +41,8 @@
 <h4>Total {{ value.price|multiply:value.quantity }} USD</h4>
 {% endfor %}
 
+<p>
+<a href="{% url 'create_order' %}" class="btn btn-primary">Create order</a>
+</p>
+
 {% endblock %}

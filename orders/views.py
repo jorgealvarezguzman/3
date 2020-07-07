@@ -93,3 +93,23 @@ def cart_clear(request):
 @login_required(login_url="/users/login")
 def cart_detail(request):
     return render(request, 'cart_detail.html')
+
+
+@login_required(login_url="/users/login")
+def create_order(request):
+    cart = Cart(request)
+    total_price = 0
+
+    order = Order.objects.create(total_price=total_price)
+
+    for key, value in cart.cart.items():
+        total_price += float(value['price']) * value['quantity']
+        product = Product.objects.get(id=key)
+        order.cart.add(product)
+
+    order.total_price = total_price
+    order.save()
+
+    cart.clear()
+
+    return redirect("index")
